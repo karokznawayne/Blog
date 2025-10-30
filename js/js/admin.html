@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Artist Website</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <!-- Login Form -->
+    <div id="login-container" class="login-container">
+        <div class="login-form">
+            <h1>Admin Login</h1>
+            <input type="password" id="admin-password" placeholder="Enter Admin Password">
+            <button onclick="adminLogin()">Login</button>
+            <p id="login-error" style="color: #e74c3c; margin-top: 1rem; display: none;"></p>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="admin-dashboard" class="admin-dashboard" style="display: none;">
+        <nav class="admin-nav">
+            <h2>Admin Panel</h2>
+            <button onclick="adminLogout()">Logout</button>
+            <a href="index.html">Back to Site</a>
+        </nav>
+
+        <!-- Tabs -->
+        <div class="admin-tabs">
+            <button class="tab-btn active" onclick="switchTab('music')">Manage Music</button>
+            <button class="tab-btn" onclick="switchTab('blog')">Manage Blog</button>
+            <button class="tab-btn" onclick="switchTab('settings')">Settings</button>
+        </div>
+
+        <!-- Music Management Tab -->
+        <div id="music-tab" class="tab-content active">
+            <h3>Add New Track</h3>
+            <div class="form-group">
+                <label>Track Name:</label>
+                <input type="text" id="track-name-input" placeholder="Enter track name">
+            </div>
+            <div class="form-group">
+                <label>Artist Name:</label>
+                <input type="text" id="track-artist-input" placeholder="Enter artist name">
+            </div>
+            <div class="form-group">
+                <label>Music File URL:</label>
+                <input type="text" id="track-src-input" placeholder="e.g., assets/music/track.mp3">
+            </div>
+            <div class="form-group">
+                <label>Album Art URL:</label>
+                <input type="text" id="track-image-input" placeholder="e.g., assets/images/album.jpg">
+            </div>
+            <button onclick="addNewTrack()" class="btn-primary">Add Track</button>
+
+            <h3 style="margin-top: 2rem;">Current Tracks</h3>
+            <ul id="admin-tracks-list"></ul>
+        </div>
+
+        <!-- Blog Management Tab -->
+        <div id="blog-tab" class="tab-content">
+            <h3>Create New Blog Post</h3>
+            <div class="form-group">
+                <label>Title:</label>
+                <input type="text" id="blog-title-input" placeholder="Enter blog title">
+            </div>
+            <div class="form-group">
+                <label>Content:</label>
+                <textarea id="blog-content-input" placeholder="Write your blog post..." rows="8"></textarea>
+            </div>
+            <button onclick="addNewBlogPost()" class="btn-primary">Publish Post</button>
+
+            <h3 style="margin-top: 2rem;">Recent Posts</h3>
+            <ul id="admin-blog-list"></ul>
+        </div>
+
+        <!-- Settings Tab -->
+        <div id="settings-tab" class="tab-content">
+            <h3>Settings</h3>
+            <div class="form-group">
+                <label>Admin Password:</label>
+                <input type="password" id="new-password-input" placeholder="Enter new admin password">
+            </div>
+            <button onclick="changePassword()" class="btn-primary">Change Password</button>
+
+            <div class="form-group" style="margin-top: 2rem;">
+                <label>Website Title:</label>
+                <input type="text" id="site-title-input" placeholder="Enter website title">
+            </div>
+            <button onclick="saveSiteSettings()" class="btn-primary">Save Settings</button>
+
+            <button onclick="clearAllData()" class="btn-danger" style="margin-top: 2rem;">Clear All Data (Careful!)</button>
+        </div>
+    </div>
+
+    <script src="js/storage.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
