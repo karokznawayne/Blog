@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Name - Music & Blog</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/music-player.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Artist Name</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#music">Music</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to My Music</h1>
+            <p>Discover new tracks and read my latest updates</p>
+        </div>
+    </section>
+
+    <!-- Music Player Section -->
+    <section id="music" class="music-section">
+        <h2>My Tracks</h2>
+        <div class="player-container">
+            <!-- Album Art -->
+            <div class="album-art">
+                <img id="track-art" src="assets/images/default-album.jpg" alt="Album Art">
+            </div>
+
+            <!-- Player Controls -->
+            <div class="player-controls">
+                <div class="track-info">
+                    <p id="track-name">Track Name</p>
+                    <p id="track-artist">Artist Name</p>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="progress-container">
+                    <div class="progress">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+                    <p><span id="current-time">0:00</span> / <span id="total-time">0:00</span></p>
+                </div>
+
+                <!-- Control Buttons -->
+                <div class="controls">
+                    <button id="prev-btn" class="control-btn">⏮ Previous</button>
+                    <button id="play-btn" class="control-btn play-btn">▶ Play</button>
+                    <button id="next-btn" class="control-btn">Next ⏭</button>
+                </div>
+
+                <!-- Volume Control -->
+                <div class="volume-container">
+                    <label>Volume:</label>
+                    <input type="range" id="volume-slider" min="0" max="100" value="70">
+                </div>
+            </div>
+        </div>
+
+        <!-- Playlist -->
+        <div class="playlist-container">
+            <h3>Playlist</h3>
+            <ul id="playlist" class="playlist"></ul>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog-section">
+        <h2>Blog</h2>
+        <div id="blog-posts" class="blog-posts"></div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2>Get in Touch</h2>
+        <p>Email: artist@example.com</p>
+        <p>Follow: @artistname on all platforms</p>
+    </section>
+
+    <!-- Audio Element -->
+    <audio id="audio-player"></audio>
+
+    <!-- Hidden Admin Button (Easter Egg) -->
+    <a href="admin.html" id="admin-link" style="position: fixed; bottom: 10px; right: 10px; font-size: 10px; opacity: 0.2; text-decoration: none; color: gray;">⚙</a>
+
+    <script src="js/storage.js"></script>
+    <script src="js/music-player.js"></script>
+    <script src="js/blog.js"></script>
+</body>
+</html>
